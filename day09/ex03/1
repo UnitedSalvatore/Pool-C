@@ -1,0 +1,56 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_rot42.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ypikul <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/03 21:56:09 by ypikul            #+#    #+#             */
+/*   Updated: 2017/08/03 22:09:31 by ypikul           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+
+char	rotate_big(char c)
+{
+	c = c - 'A';
+	c = ((c + 42) % 26);
+	:c = c + 'A';
+	return (c);
+}
+char	rotate_small(char c)
+{
+	c = c - 'a';
+	c = ((c + 42) % 26);
+	c = c + 'a';
+	return (c);
+}
+char	rotate(char c)
+{
+}
+
+char	*ft_rot42(char *str)
+{
+	int i;
+	
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			return (rotate_big(str[i]));
+		else if (str[i] >= 'a' && str[i] <= 'z')
+			return (rotate_small(str[i]));
+		else
+			return (str[i]);
+		i++;
+	}
+	return (str);
+}
+
+int		main(void)
+{
+	char tab[] = "testarray";
+	printf("%s",ft_rot42(tab));
+	return 0;
+}

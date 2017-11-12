@@ -1,0 +1,5 @@
+.*
+.*/.*
+*/Launcher*
+*/main.c
+!.gitignore
